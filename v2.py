@@ -24,7 +24,7 @@ def game(screen):
     if ev in (ord('Q'), ord('q')):
         return
     screen.refresh()
-    sleep(1)
+    sleep(.5)
     screen.clear()
 
 
