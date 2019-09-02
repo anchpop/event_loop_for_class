@@ -4,6 +4,9 @@ from time import sleep
 
 def game(screen):
   while True:
+
+    # ur code go here
+
     # ===========
     # Bookkeeping
     # ===========
