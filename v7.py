@@ -7,8 +7,10 @@ def game(screen):
 
   while True:
     newEntities = []
+    def addEntity(e):
+      newEntities.append(e)
     for entity in entities:
-      newEntities.extend(entity.update(entities))
+      entity.update(entities, addEntity)
     for entity in entities:
       entity.render(screen)
 
@@ -35,9 +37,9 @@ class Fish:
     self.position_y = position_y
     self.speed      = speed
 
-  def update(self, entities):
+  def update(self, entities, addEntity):
     self.position_x += self.speed
-    return [Bubble(self.position_x, self.position_y, 3)]
+    addEntity(Bubble(self.position_x, self.position_y, 3))
 
   def render(self, screen):
     screen.print_at("><>",
@@ -57,7 +59,7 @@ class Bubble:
     self.position_y = position_y
     self.speed      = speed
 
-  def update(self, entities):
+  def update(self, entities, addEntity):
     self.position_y += -randint(0, self.speed)
     return []
 
